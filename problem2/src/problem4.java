@@ -14,26 +14,14 @@ public class problem4 {
 
 class Solution4 {
     public void moveZeroes(int[] nums) {
-        Arrays.sort(nums);
-        int right = nums.length - 1;
-        int temp;
-        int count = 0;
-        for (int i = 0; i <= right; i++) {
-            if (nums[i] == 0){
-                temp = nums[right];
-                nums[right] = nums[i];
-                nums[i] = temp;
-                right--;
-                count++;
-            }
-        }
-        for (int i = 0; i <= count; i++) {
-            for (int j = i+1; j <= count; j++) {
-                if (nums[i] > nums[j]) {
-                    temp = nums[j];
-                    nums[j] = nums[i];
-                    nums[i] = temp;
+        int j = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[j] = nums[i];
+                if (i != j) {
+                    nums[i] = 0;
                 }
+                j++;
             }
         }
     }
