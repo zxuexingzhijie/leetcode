@@ -12,9 +12,15 @@ public class problem5 {
 class Solution5 {
     public int maxArea(int[] height) {
         int maxheight = 0;
-        for (int i = 0; i < height.length; i++) {
-            for (int j = i+1;j<height.length;j++){
-                maxheight = Math.max(maxheight,Math.min(height[i],height[j])*(j-i));
+        int left = 0;
+        int right = height.length - 1;
+        while (left <right){
+            maxheight = Math.max(maxheight, Math.min(height[left], height[right]) * (right - left));
+            // 移动高度较小的一侧，因为只有这样才有可能找到更大的面积
+            if (height[left] < height[right]){
+                left++;
+            }else {
+                right--;
             }
         }
         return maxheight;
