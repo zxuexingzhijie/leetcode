@@ -33,6 +33,7 @@ public class problem13 {
 //    }
 //}
 
+// Optimized solution without using division and in O(n) time complexity
 class Solution13 {
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length;
