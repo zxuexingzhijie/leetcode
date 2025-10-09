@@ -22,21 +22,13 @@ class Solution13 {
         }
         int count = 0;
         while (count < nums.length) {
-            for (int i = 0; i < nums.length-1; i++) {
+            for (int i = 0; i < nums.length; i++) {
                 if (i != count){
-                    answers[count] *= nums[i+1];
+                    answers[count] *= nums[i];
                 }
             }
             count++;
         }
-
-        //数组转换为LIST并反转
-//        List<Integer> list = Arrays.stream(answers).boxed().toList();
-        //Collections.reverse()这里需要可变序列，所以要用ArrayList,不直接转换为List
-        List<Integer> list = new ArrayList<>(Arrays.stream(answers).boxed().toList());
-        Collections.reverse(list);
-        //LIST转换为int数组
-        int[] array = list.stream().mapToInt(Integer::intValue).toArray();
-        return array;
+        return answers;
     }
 }
