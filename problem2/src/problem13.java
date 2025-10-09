@@ -14,21 +14,43 @@ public class problem13 {
     }
 }
 
+//class Solution13 {
+//    public int[] productExceptSelf(int[] nums) {
+//        int[] answers = new int[nums.length];
+//        for (int i = 0; i < nums.length; i++) {
+//            answers[i] = 1;
+//        }
+//        int count = 0;
+//        while (count < nums.length) {
+//            for (int i = 0; i < nums.length; i++) {
+//                if (i != count){
+//                    answers[count] *= nums[i];
+//                }
+//            }
+//            count++;
+//        }
+//        return answers;
+//    }
+//}
+
 class Solution13 {
     public int[] productExceptSelf(int[] nums) {
-        int[] answers = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            answers[i] = 1;
+        int n = nums.length;
+        int[] L = new int[n];
+        int[] R = new int[n];
+
+        L[0]=1;
+        R[n-1]=1;
+
+        for(int i=1;i<n;i++){
+            L[i]=L[i-1]*nums[i-1];
+            R[n-i-1]=R[n-i]*nums[n-i];
         }
-        int count = 0;
-        while (count < nums.length) {
-            for (int i = 0; i < nums.length; i++) {
-                if (i != count){
-                    answers[count] *= nums[i];
-                }
-            }
-            count++;
+
+        for(int i=0;i<n;i++){
+            L[i]=L[i]*R[i];
         }
-        return answers;
+
+        return L;
     }
 }
