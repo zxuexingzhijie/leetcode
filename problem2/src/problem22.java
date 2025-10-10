@@ -29,7 +29,7 @@ class Solution22 {
         }
         ListNode4 slow = head;
         ListNode4 fast = head;
-        // ✅ 必须检查 fast 和 fast.next，否则可能空指针异常，不能用slow.next来判断
+        // 必须检查 fast 和 fast.next，否则可能空指针异常，不能用slow.next来判断
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
