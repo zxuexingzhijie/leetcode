@@ -20,6 +20,6 @@ public class problem30 {
 
 class Solution30 {
     public ListNode mergeKLists(ListNode[] lists) {
-
+        return lists[0];
     }
 }

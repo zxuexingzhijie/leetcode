@@ -46,8 +46,7 @@ class Node {
 
 class Solution28 {
     public Node copyRandomList(Node head) {
-
-
+        return head;
     }
 }
 
