@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/
 public class problem69 {
     public static void main(String[] args) {
         Solution69 solution69 = new Solution69();

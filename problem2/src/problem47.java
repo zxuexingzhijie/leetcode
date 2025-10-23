@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/number-of-islands/
 public class problem47 {
     public static void main(String[] args) {
         Solution47 solution47 = new Solution47();

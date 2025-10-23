@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/invert-binary-tree/
 public class problem34 {
     public static void main(String[] args) {
         Solution34 solution34 = new Solution34();

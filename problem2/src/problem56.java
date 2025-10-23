@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/word-search/
 public class problem56 {
     public static void main(String[] args) {
         Solution56 solution56 = new Solution56();

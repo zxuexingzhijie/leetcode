@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/longest-consecutive-sequence/
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;

@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/intersection-of-two-linked-lists/
 public class problem18 {
     public static void main(String[] args) {
         Solution18 solution18 = new Solution18();

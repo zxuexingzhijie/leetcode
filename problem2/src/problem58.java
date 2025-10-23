@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/search-insert-position/
 public class problem58 {
     public static void main(String[] args) {
         Solution58 solution58 = new Solution58();

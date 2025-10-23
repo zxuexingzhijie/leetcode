@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/implement-trie-prefix-tree/
 public class problem50 {
     public static void main(String[] args) {
 

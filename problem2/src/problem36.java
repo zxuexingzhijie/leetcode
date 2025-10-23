@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/diameter-of-binary-tree/
 public class problem36 {
     public static void main(String[] args) {
         Solution36 solution36 = new Solution36();

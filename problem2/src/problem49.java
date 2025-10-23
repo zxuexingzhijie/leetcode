@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/course-schedule/
 import java.util.*;
 
 public class problem49 {

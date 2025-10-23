@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/jump-game-ii/
 public class problem71 {
     public static void main(String[] args) {
         Solution71 solution71 = new Solution71();

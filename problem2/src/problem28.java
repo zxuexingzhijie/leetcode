@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/copy-list-with-random-pointer/
 public class problem28 {
     public static void main(String[] args) {
         Solution28 solution28 = new Solution28();

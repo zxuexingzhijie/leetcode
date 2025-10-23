@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/rotting-oranges/
 import java.util.LinkedList;
 
 public class problem48 {

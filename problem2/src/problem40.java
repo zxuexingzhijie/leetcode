@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/validate-binary-search-tree/
 public class problem40 {
     public static void main(String[] args) {
         Solution40 solution40 = new Solution40();

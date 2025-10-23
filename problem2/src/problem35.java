@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/symmetric-tree/
 public class problem35 {
     public static void main(String[] args) {
         Solution35 solution35 = new Solution35();

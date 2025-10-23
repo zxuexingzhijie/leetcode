@@ -1,3 +1,4 @@
+// LeetCode题目链接: https://leetcode.cn/problems/merge-k-sorted-lists/
 public class problem30 {
     public static void main(String[] args) {
         Solution30 solution30 = new Solution30();
