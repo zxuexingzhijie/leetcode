@@ -10,6 +10,6 @@ public class problem76 {
 
 class Solution76 {
     public int numSquares(int n) {
-
+        return 0;
     }
 }
