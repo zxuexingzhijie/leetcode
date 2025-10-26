@@ -15,6 +15,10 @@ public class problem3 {
 
 class Solution3 {
     public int longestConsecutive(int[] nums) {
+        if (nums.length == 0){
+            return 0;
+        }
+
         HashSet<Integer> integerHashSet = new HashSet<>();
         for (int num : nums) {
             integerHashSet.add(num);
