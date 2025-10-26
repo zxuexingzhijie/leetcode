@@ -1,8 +1,5 @@
 // LeetCode题目链接: https://leetcode.cn/problems/group-anagrams/
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class problem2 {
@@ -17,16 +14,16 @@ public class problem2 {
 
 class Solution2 {
     public List<List<String>> groupAnagrams(String[] strs) {
-        HashMap<String,List<String>> map = new HashMap<>();
-        for (String str: strs){
+        List<List<String>> result = new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str: strs) {
             char[] charArray = str.toCharArray();
             Arrays.sort(charArray);
-            String key = new String(charArray);
-            if(!map.containsKey(key)){
-                map.put(key,new ArrayList<String>());
-            }
-            map.get(key).add(str);
+            map.computeIfAbsent(new String(charArray),k ->new ArrayList<>()).add(str);
         }
-        return map.values().stream().collect(Collectors.toList());
+        for (String key: map.keySet()) {
+            result.add(map.get(key));
+        }
+        return result;
     }
 }
