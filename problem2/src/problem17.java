@@ -15,20 +15,28 @@ public class problem17 {
 
 class Solution17 {
     public boolean searchMatrix(int[][] matrix, int target) {
-        if(matrix.length == 0 || matrix[0].length == 0){
-            return false;
-        }
-        int row = 0;
-        int col = matrix[0].length - 1;
-        while(row <matrix.length && col >=0){
-            if(matrix[row][col] == target){
+        for (int[] row : matrix) {
+            int index = search(row, target);
+            if (index >= 0) {
                 return true;
-            }else if (matrix[row][col] < target){
-                row++;
-            }else {
-                col--;
             }
         }
         return false;
+    }
+
+    public int search(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = (high - low) / 2 + low;
+            int num = nums[mid];
+            if (num == target) {
+                return mid;
+            } else if (num > target) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return -1;
     }
 }
