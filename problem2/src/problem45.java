@@ -22,30 +22,28 @@ public class problem45 {
 
 class Solution45 {
     public int pathSum(TreeNode root, int targetSum) {
-        Map<Long, Integer> prefixSum = new HashMap<>();
-        prefixSum.put(0L, 1); // 空路径的前缀和为 0
-        return dfs(root, 0L, targetSum, prefixSum);
+        if (root == null) {
+            return 0;
+        }
+        // 以 root 为起点的路径数量 + 左子树所有起点 + 右子树所有起点
+        return countFrom(root, targetSum)
+                + pathSum(root.left, targetSum)
+                + pathSum(root.right, targetSum);
     }
 
-    private int dfs(TreeNode node, long currSum, int targetSum, Map<Long, Integer> prefixSum) {
+    // 计算以 node 为起点，向下的连续路径中和等于 sum 的数量
+    private int countFrom(TreeNode node, int sum) {
         if (node == null) {
             return 0;
         }
-
-        currSum += node.val;
-        int count = prefixSum.getOrDefault(currSum - targetSum, 0);
-
-        // 更新当前路径的前缀和出现次数
-        prefixSum.put(currSum, prefixSum.getOrDefault(currSum, 0) + 1);
-
-        // 递归搜索左右子树
-        count += dfs(node.left, currSum, targetSum, prefixSum);
-        count += dfs(node.right, currSum, targetSum, prefixSum);
-
-        // 回溯，移除当前节点对应的前缀和（防止影响其他路径）
-        prefixSum.put(currSum, prefixSum.get(currSum) - 1);
-
-        return count;
+        int res = 0;
+        if (node.val == sum) {
+            res++;
+        }
+        // 继续向下查找剩余的目标 (sum - node.val)
+        res += countFrom(node.left, sum - node.val);
+        res += countFrom(node.right, sum - node.val);
+        return res;
     }
 }
 
