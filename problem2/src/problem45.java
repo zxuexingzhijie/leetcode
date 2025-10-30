@@ -21,29 +21,31 @@ public class problem45 {
 }
 
 class Solution45 {
-    public int pathSum(TreeNode root, int targetSum) {
+    public int pathSum(TreeNode root, long targetSum) {
         if (root == null) {
             return 0;
         }
-        // 以 root 为起点的路径数量 + 左子树所有起点 + 右子树所有起点
-        return countFrom(root, targetSum)
-                + pathSum(root.left, targetSum)
-                + pathSum(root.right, targetSum);
+
+        int ret = rootSum(root, targetSum);
+        ret += pathSum(root.left, targetSum);
+        ret += pathSum(root.right, targetSum);
+        return ret;
     }
 
-    // 计算以 node 为起点，向下的连续路径中和等于 sum 的数量
-    private int countFrom(TreeNode node, int sum) {
-        if (node == null) {
+    public int rootSum(TreeNode root, long targetSum) {
+        int ret = 0;
+
+        if (root == null) {
             return 0;
         }
-        int res = 0;
-        if (node.val == sum) {
-            res++;
+        int val = root.val;
+        if (val == targetSum) {
+            ret++;
         }
-        // 继续向下查找剩余的目标 (sum - node.val)
-        res += countFrom(node.left, sum - node.val);
-        res += countFrom(node.right, sum - node.val);
-        return res;
+
+        ret += rootSum(root.left, targetSum - val);
+        ret += rootSum(root.right, targetSum - val);
+        return ret;
     }
 }
 
