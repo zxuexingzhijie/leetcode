@@ -28,7 +28,9 @@ class Solution45 {
     }
 
     private int dfs(TreeNode node, long currSum, int targetSum, Map<Long, Integer> prefixSum) {
-        if (node == null) return 0;
+        if (node == null) {
+            return 0;
+        }
 
         currSum += node.val;
         int count = prefixSum.getOrDefault(currSum - targetSum, 0);
