@@ -17,17 +17,29 @@ public class problem43 {
 
 class Solution43 {
     public void flatten(TreeNode root) {
-        while (root != null){
-            TreeNode p = root.left;
-            if (p != null){
-                while (p.right != null){
-                    p= p.right;
-                }
-                p.right = root.right;
-                root.right = root.left;
-                root.left = null;
-            }
-            root = root.right;
+        if (root == null) {
+            return;
         }
+
+        // 1. 递归展开左右子树
+        flatten(root.left);
+        flatten(root.right);
+
+        // 2. 暂存右子树
+        TreeNode tempRight = root.right;
+
+        // 3. 把左子树搬到右边
+        root.right = root.left;
+        root.left = null;
+
+        // 4. 找到新的右子树的最后一个节点
+        TreeNode cur = root;
+        while (cur.right != null) {
+            cur = cur.right;
+        }
+
+        // 5. 把原来的右子树接上去
+        cur.right = tempRight;
     }
 }
+
