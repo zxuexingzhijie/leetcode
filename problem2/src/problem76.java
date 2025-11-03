@@ -1,3 +1,7 @@
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Queue;
+
 // LeetCode题目链接: https://leetcode.cn/problems/perfect-squares/
 public class problem76 {
     public static void main(String[] args) {
@@ -10,19 +14,31 @@ public class problem76 {
 
 class Solution76 {
     public int numSquares(int n) {
-        int[] dp = new int[n + 1];
-        // 初始化
-        dp[0] = 0; // 0 不需要任何平方数表示
+        Queue<Integer> queue = new ArrayDeque<>();
+        boolean[] visited = new boolean[n + 1];
+        queue.offer(n);
+        visited[n] = true;
+        int level = 0; // BFS 层数 = 用了多少个平方数
 
-        // 从 1 到 n 逐个计算最优解
-        for (int i = 1; i <= n; i++) {
-            dp[i] = i;  // 最坏情况：全部由 1 组成 (1+1+1+...+1)
-            // 枚举所有平方数
-            for (int j = 1; j * j <= i; j++) {
-                dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
+        while (!queue.isEmpty()) {
+            level++;
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                int cur = queue.poll();
+                // 尝试减去所有平方数
+                for (int j = 1; j * j <= cur; j++) {
+                    int next = cur - j * j;
+                    if (next == 0) {
+                        return level; // 正好到达0，返回层数
+                    }
+                    if (!visited[next]) {
+                        visited[next] = true;
+                        queue.offer(next);
+                    }
+                }
             }
         }
-        return dp[n];
+        return level;
     }
 }
 
