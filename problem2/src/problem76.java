@@ -31,9 +31,9 @@ class Solution76 {
                     if (next == 0) {
                         return level; // 正好到达0，返回层数
                     }
-                    if (!visited[next]) {
-                        visited[next] = true;
-                        queue.offer(next);
+                    if (!visited[next]) {   // 如果没访问过
+                        visited[next] = true;  // 标记为已访问
+                        queue.offer(next);     // 放入队列
                     }
                 }
             }
