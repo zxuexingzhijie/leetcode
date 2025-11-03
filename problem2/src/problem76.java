@@ -42,3 +42,25 @@ class Solution76 {
     }
 }
 
+//还有种数学解法
+//class Solution76 {
+//    public int numSquares(int n) {
+//        if (isSquare(n)) return 1;
+//
+//        // 判断是否是两个平方数之和
+//        for (int i = 1; i * i <= n; i++) {
+//            if (isSquare(n - i * i)) return 2;
+//        }
+//
+//        // 去掉4的因子
+//        while (n % 4 == 0) n /= 4;
+//        if (n % 8 == 7) return 4;
+//
+//        return 3;
+//    }
+//
+//    private boolean isSquare(int x) {
+//        int r = (int)Math.sqrt(x);
+//        return r * r == x;
+//    }
+//}
